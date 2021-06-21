@@ -18,6 +18,7 @@ from django.urls import path
 from django.urls.conf import include
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('fcuser/', include('fcuser.urls'))
+    path('admin/', admin.site.urls), 
+    # aaaaa.com/admin/ admin 하위에 들어간 것들은 admin 으로 들어간다
+    path('fcuser/', include('fcuser.urls')) 
 ]
