@@ -6,7 +6,7 @@ from django.db import models
 class Fcuser(models.Model):
     username = models.CharField(max_length=64,
                                 verbose_name='사용자명')
-    useremail = models.EmailField(max_length=128,
+    useremail = models.EmailField(max_length=128, # emailfield는 그 문자열이 email형태를 검증해준다.
                                 verbose_name='사용자이메일')
     password = models.CharField(max_length=64,
                                 verbose_name='비밀번호')

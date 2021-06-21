@@ -1,12 +1,12 @@
 <!-- bootstrap에서 가져옴 -->
 
-{% extends "base.html" %} {% block contents %}
-
+{% extends "base.html" %} {% block contents %} {% comment %} blcok
+"contents"라는 이름으로 base.html에서 상속을 받는다. {% endcomment %}
 <div class="row mt-5">
   <!-- mt-5는 여백추가 -->
   <div class="col-12 text-center">
     <!-- 텍스트 정력 -->
-    <h1>회원가입</h1>
+    <h1>로그인</h1>
   </div>
 </div>
 <div class="row mt-5">
@@ -28,16 +28,6 @@
         />
       </div>
       <div class="mb-3">
-        <label for="username">사용자 이메일</label>
-        <input
-          type="email"
-          class="form-control"
-          id="useremail"
-          placeholder="사용자 이메일"
-          name="useremail"
-        />
-      </div>
-      <div class="mb-3">
         <label for="password">비밀번호</label>
         <input
           type="password"
@@ -47,17 +37,7 @@
           name="password"
         />
       </div>
-      <div class="mb-3">
-        <label for="re-password">비밀번호 확인</label>
-        <input
-          type="password"
-          class="form-control"
-          id="re-password"
-          placeholder="비밀번호 확인"
-          name="re-password"
-        />
-      </div>
-      <button type="submit" class="btn btn-primary">등록</button>
+      <button type="submit" class="btn btn-primary">로그인</button>
     </form>
   </div>
 </div>
