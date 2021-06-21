@@ -15,8 +15,22 @@
 <div class="row mt-5">
   <div class="col-12">
     <form method="POST" action=".">
-      {% csrf_token %}
       <!-- 꼭 토큰은 form 안에 써야 된다. 다른 곳에서 호출하는 문제점을 막는다. 토큰 안쓰면 에러난다.-->
+      {% csrf_token %} {% for field in form %}
+      <div class="form-group">
+        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+        <input
+          type="{{field.field.widget.input_type}}"
+          class="form-control"
+          id="{{ field.id_for_label }}"
+          placeholder="{{ field.label }}"
+          name="{{ field.name }}"
+        />
+      </div>
+      {% if field.errors %}
+      <span style="color: red">{{ field.errors }}</span>
+
+      {% endif %} {% endfor %} {% comment %}
       <div class="mb-3">
         <label for="username">사용자 이름</label>
         <input
@@ -37,6 +51,7 @@
           name="password"
         />
       </div>
+      {% endcomment %}
       <button type="submit" class="btn btn-primary">로그인</button>
     </form>
   </div>
