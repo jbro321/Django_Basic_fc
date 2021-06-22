@@ -1,0 +1,23 @@
+{% extends "base.html" %} {% block contents %}
+<div class="row mt-5">
+  <div class="col-12">
+    <div class="form-group">
+      <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+      <textarea
+        class="form-control"
+        name="{{ field.name }}"
+        placeholder="{{ field.label }}"
+      ></textarea>
+      <input
+        type="{{field.field.widget.input_type}}"
+        class="form-control"
+        id="{{ field.id_for_label }}"
+        placeholder="{{ field.label }}"
+        name="{{ field.name }}"
+      />
+    </div>
+    <span style="color: red">{{ field.errors }}</span>
+    <button type="submit" class="btn btn-primary">글쓰기</button>
+  </div>
+</div>
+{% endblock %}
