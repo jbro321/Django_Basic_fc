@@ -7,13 +7,7 @@ from .forms import LoginForm
 # Create your views here.
 
 def home(request):
-    user_id = request.session.get('user') # 유저키로 값이 들어있으면 로그인
-
-    if user_id: # user키로 확인해본다.
-        fcuser = Fcuser.objects.get(pk=user_id)
-        return HttpResponse(fcuser.username)
-
-    return HttpResponse('Home!')
+    return render(request, 'home.html')
 
 def logout(request):
     if request.session.get('user'):

@@ -7,8 +7,9 @@ class Board(models.Model):
                                 verbose_name='제목')
     contents = models.TextField(max_length=128, # textfield 길이제한없는 걸로 사용
                                 verbose_name='내용')
-    writer = models.ForeignKey('fcuser.Fcuser', # id로 연결하는 키
+    writer = models.ForeignKey('fcuser.Fcuser', # id로 연결하는 키 / 1:n 관계
                                 on_delete=models.CASCADE, verbose_name='작성자')
+    tags = models.ManyToManyField('tag.Tag', verbose_name='태그')
     registered_dttm = models.DateTimeField(auto_now_add=True, #dttm은 데이트타임의 약자
                                            verbose_name='등록시간')
 
